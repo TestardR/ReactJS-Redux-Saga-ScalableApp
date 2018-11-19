@@ -8,15 +8,18 @@ import React from 'react';
 
 import styles from './styles.css';
 
-function Navigation({ topics }) {
-  return (
-    <div className={styles.navigation}>
-      Whe have {topics.length} in the nav component
+function Navigation({ topics, selectTopic }) {
+  const topicNodes = topics.map(t => (
+    <div key={t.name} onClick={() => selectTopic(t)}>
+      {t.name}
     </div>
-  );
+  ));
+
+  return <div className={styles.navigation}>{topicNodes}</div>;
 }
 
 Navigation.propTypes = {
+  selectTopic: React.PropTypes.func.isRequired,
   topics: React.PropTypes.arrayOf(
     React.PropTypes.shape({
       name: React.PropTypes.string.isRequired,
