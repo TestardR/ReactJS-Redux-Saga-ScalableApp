@@ -5,12 +5,13 @@
  */
 
 import React from 'react';
-import classNames from 'classnames';
+
 import styles from './styles.css';
+import classNames from 'classnames';
 
 function Drawer({
   items,
-  selectiItem,
+  selectItem,
   itemLabelAttr,
   itemKeyAttr,
   isDrawerOpen
@@ -19,11 +20,14 @@ function Drawer({
     <div
       className={styles.item}
       key={item[itemKeyAttr]}
-      onClick={() => selectiItem(item)}
+      onClick={() => {
+        selectItem(item);
+      }}
     >
       {item[itemLabelAttr]}
     </div>
   ));
+
   return (
     <div
       className={classNames(styles.drawer, {
@@ -36,7 +40,7 @@ function Drawer({
 }
 
 Drawer.propTypes = {
-  items: React.PropTypes.arr.isRequired,
+  items: React.PropTypes.array.isRequired,
   selectItem: React.PropTypes.func.isRequired,
   itemLabelAttr: React.PropTypes.string.isRequired,
   itemKeyAttr: React.PropTypes.string.isRequired,
