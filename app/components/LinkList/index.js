@@ -8,13 +8,19 @@ import React from 'react';
 import Link from '../Link';
 import styles from './styles.css';
 
-function LinkList({ links }) {
+function LinkList({ links, routeTopicName }) {
   const linkNodes = links.map(l => <Link key={l.id} link={l} />);
 
-  return <div className={styles.linkList}>{linkNodes}</div>;
+  return (
+    <div className={styles.linkList}>
+      {routeTopicName}
+      {linkNodes}
+    </div>
+  );
 }
 
 LinkList.propTypes = {
+  routeTopicName: React.PropTypes.string.isRequired,
   links: React.PropTypes.arrayOf(
     React.PropTypes.shape({
       description: React.PropTypes.string.isRequired,
