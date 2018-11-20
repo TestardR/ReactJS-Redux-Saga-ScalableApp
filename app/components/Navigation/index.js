@@ -8,7 +8,7 @@ import React from 'react';
 import AppBar from '../AppBar';
 import styles from './styles.css';
 
-function Navigation({ topics, selectTopic }) {
+function Navigation({ topics, selectTopic, toggleDrawer }) {
   const topicNodes = topics.map(t => (
     <div key={t.name} onClick={() => selectTopic(t)}>
       {t.name}
@@ -17,13 +17,14 @@ function Navigation({ topics, selectTopic }) {
 
   return (
     <div className={styles.navigation}>
-      <AppBar />
+      <AppBar toggleDrawer={toggleDrawer} />
       {topicNodes}
     </div>
   );
 }
 
 Navigation.propTypes = {
+  toggleDrawer: React.PropTypes.func.isRequired,
   topics: React.PropTypes.arrayOf(
     React.PropTypes.shape({
       name: React.PropTypes.string.isRequired,
