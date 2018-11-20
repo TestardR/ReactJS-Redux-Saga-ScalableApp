@@ -5,7 +5,7 @@
  */
 
 import React from 'react';
-
+import AppBar from '../AppBar';
 import styles from './styles.css';
 
 function Navigation({ topics, selectTopic }) {
@@ -15,7 +15,12 @@ function Navigation({ topics, selectTopic }) {
     </div>
   ));
 
-  return <div className={styles.navigation}>{topicNodes}</div>;
+  return (
+    <div className={styles.navigation}>
+      <AppBar />
+      {topicNodes}
+    </div>
+  );
 }
 
 Navigation.propTypes = {
