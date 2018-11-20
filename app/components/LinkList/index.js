@@ -11,7 +11,7 @@ import styles from './styles.css';
 function LinkList({ links }) {
   const linkNodes = links.map(l => (
     <div key={l.id}>
-      {l.url} - {l.description}
+      {l.url} - ({l.description})
     </div>
   ));
 
