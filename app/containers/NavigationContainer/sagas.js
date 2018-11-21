@@ -31,7 +31,7 @@ function* pushTopic(action) {
 
 function* selectDefaultTopic() {
   const state = yield select(selectNavigationContainer());
-  if (!state.selectTopic) {
+  if (!state.selectTopic && state.routerLocation === '/') {
     yield put(push(`/topics/${state.topics[0].name}`));
   }
 }

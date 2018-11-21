@@ -6,7 +6,7 @@
 
 import React from 'react';
 import FontAwesome from 'react-fontawesome';
-
+import { Link } from 'react-router';
 import styles from './styles.css';
 
 function AppBar({ toggleDrawer }) {
@@ -16,7 +16,9 @@ function AppBar({ toggleDrawer }) {
         <FontAwesome className={styles.icon} name="bars" />
       </div>
       <div className={styles.heading}>Coder daily</div>
-      <div className={styles.linkContainer}>log in</div>
+      <div className={styles.linkContainer}>
+        <Link to="/login"> login </Link>
+      </div>
     </div>
   );
 }
