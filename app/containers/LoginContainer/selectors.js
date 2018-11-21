@@ -9,17 +9,15 @@ const selectLoginContainerDomain = () => state => state.get('loginContainer');
  * Other specific selectors
  */
 
-
 /**
  * Default selector used by LoginContainer
  */
 
-const selectLoginContainer = () => createSelector(
-  selectLoginContainerDomain(),
-  (substate) => substate.toJS()
-);
+const selectLoginContainer = () =>
+  createSelector(
+    selectLoginContainerDomain(),
+    substate => (substate ? substate.toJS() : {})
+  );
 
 export default selectLoginContainer;
-export {
-  selectLoginContainerDomain,
-};
+export { selectLoginContainerDomain };
