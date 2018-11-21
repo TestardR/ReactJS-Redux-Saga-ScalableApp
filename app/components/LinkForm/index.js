@@ -13,7 +13,8 @@ class LinkForm extends React.Component {
   // eslint-disable-line react/prefer-stateless-function
   static propTypes = {
     addLink: React.PropTypes.func.isRequired,
-    topicName: React.PropTypes.string.isRequired
+    topicName: React.PropTypes.string.isRequired,
+    addLinkCancelled: React.PropTypes.func.isRequired
   };
 
   state = {
@@ -60,12 +61,14 @@ class LinkForm extends React.Component {
       <div className={styles.overlay}>
         <div className={styles.linkForm}>
           <div className={styles.heading}>Add a link</div>
+
           <TextInput
             placeholder="URL"
             className={styles.input}
             errorText={this.state.urlError}
             ref={f => (this.url = f)}
           />
+
           <TextInput
             placeholder="Description"
             className={styles.input}
@@ -74,11 +77,14 @@ class LinkForm extends React.Component {
           />
 
           <div className={styles.actionContainer}>
-            <div className={styles.button} onClick={this.props.cancelLogin}>
+            <div
+              className={styles.button}
+              onClick={this.props.addLinkCancelled}
+            >
               cancel
             </div>
             <div className={styles.button} onClick={this.onAdd}>
-              Add
+              add
             </div>
           </div>
         </div>
