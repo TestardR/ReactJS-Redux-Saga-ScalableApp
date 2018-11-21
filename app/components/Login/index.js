@@ -10,6 +10,10 @@ import styles from './styles.css';
 import classNames from 'classnames';
 
 class Login extends React.Component {
+  static propTypes = {
+    login: React.PropTypes.func.isRequired
+  };
+
   state = {};
   // eslint-disable-line react/prefer-stateless-function
   login = () => {
@@ -23,6 +27,7 @@ class Login extends React.Component {
     this.setState({
       errorText: null
     });
+    this.props.login(email);
   };
   render() {
     const fieldError = this.state.errorText ? (
