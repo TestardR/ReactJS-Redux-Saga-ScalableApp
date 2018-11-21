@@ -11,7 +11,8 @@ import classNames from 'classnames';
 
 class Login extends React.Component {
   static propTypes = {
-    login: React.PropTypes.func.isRequired
+    login: React.PropTypes.func.isRequired,
+    cancelLogin: React.PropTypes.func.isRequired
   };
 
   state = {};
@@ -48,7 +49,9 @@ class Login extends React.Component {
         />
         {fieldError}
         <div className={styles.actionContainer}>
-          <div className={styles.button}>cancel</div>
+          <div className={styles.button} onClick={this.props.cancelLogin}>
+            cancel
+          </div>
           <div className={styles.button} onClick={this.login}>
             log in
           </div>
