@@ -17,14 +17,20 @@ function LinkList({ links, topicName, children }) {
     <div className={styles.linkList}>
       <h1>{topicName}</h1>
       {linkNodes}
-      <IconButton icon="plus" />
+
+      <IconButton
+        icon="plus"
+        buttonClass={styles.button}
+        iconClass={styles.icon}
+      />
+
       {children}
     </div>
   );
 }
 
 LinkList.propTypes = {
-  children: React.PropTypes.element.isRequired,
+  children: React.PropTypes.element,
   topicName: React.PropTypes.string.isRequired,
   links: React.PropTypes.arrayOf(
     React.PropTypes.shape({
